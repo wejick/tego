@@ -28,7 +28,7 @@ func TestLoadConfigFromFile(t *testing.T) {
 		t.Log("ssl mode failed")
 		t.Fail()
 	}
-	if config.Get().DB.Postgres["trackingDocument"].GetDSSN() != "postgres://gio:gio@localhost:5432/tracking?sslmode=disable" {
+	if config.Get().DB.Postgres["trackingDocument"].GetURL() != "postgres://gio:gio@localhost:5432/tracking?sslmode=disable" {
 		t.Log("GetDSSN failed")
 		t.Fail()
 	}

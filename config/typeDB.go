@@ -18,8 +18,8 @@ type (
 	}
 )
 
-//GetDSSN gets dssn connection string
-func (pCfg *PostgresConfig) GetDSSN() string {
+//GetURL gets dssn connection string
+func (pCfg *PostgresConfig) GetURL() string {
 	return fmt.Sprintf("postgres://%s:%s@%s/%s?sslmode=%s",
 		pCfg.User,
 		pCfg.Password,
