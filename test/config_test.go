@@ -20,4 +20,8 @@ func TestLoadConfigFromFile(t *testing.T) {
 		t.Log(config.Get().DB.Postgres["trackingDocument"].Host)
 		t.Fail()
 	}
+	if config.Get().DB.Postgres["trackingDocument"].Database != "tracking" {
+		t.Log(config.Get().DB.Postgres["trackingDocument"].Database)
+		t.Fail()
+	}
 }

@@ -4,6 +4,7 @@
     "db": {
         "postgres": {
             "trackingDocument": {
+                "database": "tracking",
                 "host": "localhost:5432",
                 "user": "",
                 "password": "gio"
