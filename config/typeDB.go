@@ -1,9 +1,11 @@
 package config
 
+import "fmt"
+
 type (
 	//DBConfig database config container
 	DBConfig struct {
-		Postgres map[string]PostgresConfig `json:"postgres"`
+		Postgres map[string]*PostgresConfig `json:"postgres"`
 	}
 
 	//PostgresConfig postgress config
@@ -12,5 +14,17 @@ type (
 		Host     string `json:"host"`
 		User     string `json:"user"`
 		Password string `json:"password"`
+		SSLMode  string `json:"sslmode"`
 	}
 )
+
+//GetDSSN gets dssn connection string
+func (pCfg *PostgresConfig) GetDSSN() string {
+	return fmt.Sprintf("postgres://%s:%s@%s/%s?sslmode=%s",
+		pCfg.User,
+		pCfg.Password,
+		pCfg.Host,
+		pCfg.Database,
+		pCfg.SSLMode,
+	)
+}

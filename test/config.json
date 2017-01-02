@@ -6,8 +6,9 @@
             "trackingDocument": {
                 "database": "tracking",
                 "host": "localhost:5432",
-                "user": "",
-                "password": "gio"
+                "user": "gio",
+                "password": "gio",
+                "sslmode": "disable"
             }
         }
     }
