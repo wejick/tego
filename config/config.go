@@ -2,28 +2,32 @@ package config
 
 import (
 	"encoding/json"
-	"errors"
 	"io/ioutil"
 	"log"
 )
+
+var cfg *Config
 
 /*
 LoadConfigFromFile load json configuration file from configPath
 to given struct
 */
-func LoadConfigFromFile(configPath string, cfg interface{}) (err error) {
+func LoadConfigFromFile(configPath string) (err error) {
 	f, err := ioutil.ReadFile(configPath)
 	if err != nil {
-		errorLog := "Couldn't read config file : " + configPath + "" + err.Error()
-		log.Println(errorLog)
-		return errors.New(errorLog)
+		log.Println("Couldn't read config file : " + configPath)
+		return
 	}
 	err = json.Unmarshal(f, &cfg)
 	if err != nil {
-		errorLog := "Couldn't read config file : " + configPath + "" + err.Error()
-		log.Println(errorLog)
-		return errors.New(errorLog)
+		log.Println("Couldn't read config file : " + configPath)
+		return
 	}
 
 	return
+}
+
+//Get returns config container pointer
+func Get() *Config {
+	return cfg
 }

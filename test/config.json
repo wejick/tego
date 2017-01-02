@@ -1,0 +1,13 @@
+{
+    "name": "smile",
+    "version": "0.0.1",
+    "db": {
+        "postgres": {
+            "trackingDocument": {
+                "host": "localhost:5432",
+                "user": "",
+                "password": "gio"
+            }
+        }
+    }
+}
