@@ -12,6 +12,8 @@ func TestLoadConfigFromFile(t *testing.T) {
 		t.Log(err)
 		t.Fail()
 	}
+
+	//generic
 	if config.Get().Name != "smile" {
 		t.Log("name failed")
 		t.Fail()
@@ -24,6 +26,8 @@ func TestLoadConfigFromFile(t *testing.T) {
 		t.Log("description failed")
 		t.Fail()
 	}
+
+	//db
 	if config.Get().DB.Postgres["trackingDocument"].Host != "localhost:5432" {
 		t.Log(config.Get().DB.Postgres["trackingDocument"].Host)
 		t.Fail()
@@ -40,12 +44,32 @@ func TestLoadConfigFromFile(t *testing.T) {
 		t.Log("GetDSSN failed")
 		t.Fail()
 	}
+
+	//http
 	if config.Get().HTTP.Listen != "localhost" {
 		t.Log("http listen failed")
 		t.Fail()
 	}
 	if config.Get().HTTP.Port != "8080" {
 		t.Log("http port failed")
+		t.Fail()
+	}
+
+	//upstream
+	if config.Get().Upstream.HTTP["orcinus"].Address != "localhost" {
+		t.Log("http upstream Address failed")
+		t.Fail()
+	}
+	if config.Get().Upstream.HTTP["orcinus"].Schema != "http://" {
+		t.Log("http upstream Address failed")
+		t.Fail()
+	}
+	if config.Get().Upstream.HTTP["orcinus"].Port != "" {
+		t.Log("http upstream port failed")
+		t.Fail()
+	}
+	if config.Get().Upstream.HTTP["orcinus"].GetURL() != "http://localhost:" {
+		t.Log("http upstream port failed")
 		t.Fail()
 	}
 }
