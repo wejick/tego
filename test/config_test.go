@@ -72,4 +72,8 @@ func TestLoadConfigFromFile(t *testing.T) {
 		t.Log("http upstream port failed")
 		t.Fail()
 	}
+	if config.Get().Upstream.UnixSocket["docker"].FileDescriptor != "/var/log/docker.sock" {
+		t.Log("http upstream unix socket failed")
+		t.Fail()
+	}
 }

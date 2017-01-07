@@ -24,6 +24,11 @@
                 "port": "",
                 "schema": "http://"
             }
+        },
+        "unixSocket":{
+            "docker": {
+                "fileDescriptor": "/var/log/docker.sock"
+            }
         }
     }
 }
