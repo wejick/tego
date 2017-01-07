@@ -1,6 +1,7 @@
 {
     "name": "smile",
     "version": "0.0.1",
+    "description": "config example",
     "db": {
         "postgres": {
             "trackingDocument": {
@@ -10,5 +11,9 @@
                 "password": "gio"
             }
         }
+    },
+    "http": {
+        "listen" : "localhost",
+        "port": "8080"
     }
 }

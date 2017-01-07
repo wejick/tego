@@ -16,12 +16,28 @@ func TestLoadConfigFromFile(t *testing.T) {
 		t.Log("name failed")
 		t.Fail()
 	}
+	if config.Get().Version != "0.0.1" {
+		t.Log("version failed")
+		t.Fail()
+	}
+	if config.Get().Description != "config example" {
+		t.Log("description failed")
+		t.Fail()
+	}
 	if config.Get().DB.Postgres["trackingDocument"].Host != "localhost:5432" {
 		t.Log(config.Get().DB.Postgres["trackingDocument"].Host)
 		t.Fail()
 	}
 	if config.Get().DB.Postgres["trackingDocument"].Database != "tracking" {
 		t.Log(config.Get().DB.Postgres["trackingDocument"].Database)
+		t.Fail()
+	}
+	if config.Get().HTTP.Listen != "localhost" {
+		t.Log("http listen failed")
+		t.Fail()
+	}
+	if config.Get().HTTP.Port != "8080" {
+		t.Log("http port failed")
 		t.Fail()
 	}
 }
