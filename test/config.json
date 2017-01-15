@@ -3,6 +3,7 @@
     "version": "0.0.1",
     "description": "config example",
     "db": {
+        /*for postgres */
         "postgres": {
             "trackingDocument": {
                 "database": "tracking",

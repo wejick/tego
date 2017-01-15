@@ -4,6 +4,9 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"log"
+
+	"github.com/tdewolff/minify"
+	"github.com/tdewolff/minify/js"
 )
 
 var cfg *Config
@@ -16,6 +19,13 @@ func LoadConfigFromFile(configPath string) (err error) {
 	f, err := ioutil.ReadFile(configPath)
 	if err != nil {
 		log.Println("Couldn't read config file : " + configPath)
+		return
+	}
+	minifier := minify.New()
+	minifier.AddFunc("text/javascript", js.Minify)
+	f, err = minifier.Bytes("text/javascript", f)
+	if err != nil {
+		log.Println("Couldn't minify config file : " + configPath)
 		return
 	}
 	err = json.Unmarshal(f, &cfg)
