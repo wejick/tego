@@ -26,9 +26,15 @@
                 "schema": "http://"
             }
         },
-        "unixSocket":{
+        "unixSocket": {
             "docker": {
                 "fileDescriptor": "/var/log/docker.sock"
+            }
+        },
+        "socket": {
+            "gRPC": {
+                "address": "localhost",
+                "port": "8081"
             }
         }
     }

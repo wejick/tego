@@ -68,12 +68,24 @@ func TestLoadConfigFromFile(t *testing.T) {
 		t.Log("http upstream port failed")
 		t.Fail()
 	}
-	if config.Get().Upstream.HTTP["orcinus"].GetURL() != "http://localhost:" {
+	if config.Get().Upstream.HTTP["orcinus"].GetURL() != "http://localhost" {
 		t.Log("http upstream port failed")
 		t.Fail()
 	}
 	if config.Get().Upstream.UnixSocket["docker"].FileDescriptor != "/var/log/docker.sock" {
-		t.Log("http upstream unix socket failed")
+		t.Log("upstream unix socket failed")
+		t.Fail()
+	}
+	if config.Get().Upstream.Socket["gRPC"].Address != "localhost" {
+		t.Log("socket upstream failed")
+		t.Fail()
+	}
+	if config.Get().Upstream.Socket["gRPC"].Port != "8081" {
+		t.Log("socket upstream failed")
+		t.Fail()
+	}
+	if config.Get().Upstream.Socket["gRPC"].GetTarget() != "localhost:8081" {
+		t.Log("socket upstream failed")
 		t.Fail()
 	}
 }

@@ -20,6 +20,9 @@ type (
 
 //GetURL gets dssn connection string
 func (pCfg *PostgresConfig) GetURL() string {
+	if pCfg.Database == "" || pCfg.User == "" || pCfg.Password == "" || pCfg.Host == "" {
+		return ""
+	}
 	return fmt.Sprintf("postgres://%s:%s@%s/%s?sslmode=%s",
 		pCfg.User,
 		pCfg.Password,
