@@ -4,12 +4,12 @@ Tego is a bunch of package to make creating microservice easier, if you expect s
 
  * Json Config Loader (The current solution is not flexible enough, looking for toml as alternative)
  * Logger with multi output backend (TODO)
- * Context aware server for : (TODO)
+ * Context aware and graceful able transport for : (TODO)
    * Http service
    * GRPC service
  * Lightweight middleware implementation (TODO)
-   * Commong middleware implementation
- * Instrumentation support
+   * Common middleware implementation
+ * Instrumentation support (TODO)
  * Use functional option
 
 ### The goal
