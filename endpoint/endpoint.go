@@ -1,4 +1,5 @@
 //Copyright (c) 2015 Peter Bourgon
+//Copyright (c) 2018 Gian Giovani
 
 package endpoint
 
@@ -16,6 +17,13 @@ func Nop(context.Context, interface{}) (interface{}, error) { return struct{}{},
 
 // Middleware is a chainable behavior modifier for endpoints.
 type Middleware func(Endpoint) Endpoint
+
+// Set collect all endpoints that composes a service. It's meant to
+// be used as a helper struct, to collect all of the endpoints into a single
+// parameter.
+type Set struct {
+	Endpoints map[string]Endpoint
+}
 
 // Chain is a helper function for composing middlewares. Requests will
 // traverse them in the order they're declared. That is, the first middleware
