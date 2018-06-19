@@ -1,0 +1,8 @@
+// Package endpoint defines an abstraction for RPCs.
+//
+// Endpoints are a fundamental building block for many Go kit components.
+// Endpoints are implemented by servers, and called by clients.
+//
+// Copied from go kit endpoint package
+// Copyright (c) 2015 Peter Bourgon
+package endpoint
