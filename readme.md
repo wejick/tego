@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/wejick/tego.svg?branch=master)](https://travis-ci.org/wejick/tego)
+[![Coverage Status](https://coveralls.io/repos/github/wejick/tego/badge.svg?branch=master)](https://coveralls.io/github/wejick/tego?branch=master)
 # TeGo
 
 Tego is a bunch of package to make creating microservice easier, if you expect something cool find Go Kit :
