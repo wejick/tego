@@ -1,0 +1,14 @@
+syntax = "proto3";
+package pb;
+
+service halo {
+    rpc halo(haloRequest) returns (haloResponse) {}
+}
+
+message haloRequest {
+    string message = 1;
+}
+
+message haloResponse {
+    string message = 1;
+}
