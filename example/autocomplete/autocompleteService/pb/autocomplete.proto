@@ -1,0 +1,27 @@
+syntax = "proto3";
+package pb;
+
+// autocomplete service definition
+service autocomplete {
+    //returns suggestion from given keyword
+    rpc getSuggestion(autocompleteRequest) returns (suggestionResponse) {}
+    //returns popular keyword
+    rpc getPopular(autocompleteRequest) returns (popularResponse) {}
+}
+
+// autocomplete request
+message autocompleteRequest {
+    string keyword = 1;
+}
+
+// suggestion response
+message suggestionResponse {
+    repeated string suggestions = 1;
+    int32 tookTime = 2;
+}
+
+// popular response
+message popularResponse {
+    repeated string popular = 1;
+    int32 tookTime = 2;
+}

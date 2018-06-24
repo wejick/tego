@@ -1,3 +1,5 @@
+//Copyright (c) 2015 Peter Bourgon
+//Copyright (c) 2018 Gian Giovani
 package grpc
 
 import (
